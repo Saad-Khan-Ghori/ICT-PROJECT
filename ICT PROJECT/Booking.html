@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Form</title>
+  <link rel="stylesheet" href="booking.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("DOM is fully loaded");
+
+  // Price per category
+  const tourPrices = {
+    classic: 50000,
+    premium: 80000,
+    business: 120000,
+  };
+
+  const roomPrices = {
+    adult: 5000, // Price per adult room
+    child: 3000, // Price per child room
+  };
+
+  const calculatePrice = () => {
+    console.log("Calculating price...");
+
+    const tourTypeElement = document.getElementById('tour-type');
+    const guestCountElement = document.getElementById('guests');
+    const adultRoomsElement = document.getElementById('adult-rooms');
+    const childRoomsElement = document.getElementById('child-rooms');
+    const priceElement = document.getElementById('price');
+
+    // Debugging logs
+    console.log("Tour Type Element:", tourTypeElement);
+    console.log("Guest Count Element:", guestCountElement);
+    console.log("Adult Rooms Element:", adultRoomsElement);
+    console.log("Child Rooms Element:", childRoomsElement);
+    console.log("Price Element:", priceElement);
+
+    if (!tourTypeElement || !guestCountElement || !adultRoomsElement || !childRoomsElement || !priceElement) {
+      console.error("One or more elements not found in the DOM.");
+      return;
+    }
+
+    const tourType = tourTypeElement.value;
+    const guestCount = parseInt(guestCountElement.value) || 0;
+    const adultRooms = parseInt(adultRoomsElement.value) || 0;
+    const childRooms = parseInt(childRoomsElement.value) || 0;
+
+    const tourPrice = tourPrices[tourType] || 0;
+
+    // Calculate the total price
+    const totalPrice = guestCount * tourPrice + (adultRooms * roomPrices.adult) + (childRooms * roomPrices.child);
+
+    priceElement.innerText = `Rs. ${totalPrice.toLocaleString()}`;
+  };
+
+  // Add event listeners for input changes
+  document.getElementById('tour-type')?.addEventListener('change', calculatePrice);
+  document.getElementById('guests')?.addEventListener('input', calculatePrice);
+  document.getElementById('adult-rooms')?.addEventListener('input', calculatePrice);
+  document.getElementById('child-rooms')?.addEventListener('input', calculatePrice);
+
+  document.getElementById('booking-form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name')?.value;
+    const email = document.getElementById('email')?.value;
+    const price = document.getElementById('price')?.innerText;
+
+    if (!name || !email) {
+      alert("Please fill in all required fields!");
+    } else {
+      alert(`Thank you ${name}! Your booking has been submitted. Total Price: ${price}`);
+
+      // Reset the form
+      document.getElementById('booking-form').reset();
+      document.getElementById('price').innerText = "Rs. 0"; // Reset total price
+    }
+  });
+});
+
+
+  </script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Discover Pakistan Logo" class="logo-image" />
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search destinations..." class="search-bar" />
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="about.html">About</a>
+   
+    </nav>
+    <div class="auth-buttons">
+      <a class="login-btn" href="login.html">Log In</a>
+      <a class="signup-btn" href="signup.html">Sign Up</a>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="booking-title">Booking Form</h1>
+    <div class="booking-container">
+      <!-- Booking Form -->
+      <form id="booking-form" class="booking-form">
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="form-section">
+          <h2>Booking Details</h2>
+          <label for="tour-type">Tour Type</label>
+          <select id="tour-type" required>
+            <option value="" disabled selected>Select Tour Type</option>
+            <option value="classic">Classic</option>
+            <option value="premium">Premium</option>
+            <option value="business">Business</option>
+          </select>
+
+          <label for="destination">Destination</label>
+          <select id="destination" required>
+            <option value="" disabled selected>Select Destination</option>
+            <option value="standard">Skardu</option>
+            <option value="deluxe">Fairy Meadows</option>
+            <option value="luxury">Kashmir</option>
+          </select>
+
+          <label for="guests">Number of Guests</label>
+          <input type="number" id="guests" min="1" max="10" placeholder="Enter number of guests" required />
+        </div>
+
+        <div class="form-section">
+          <h2>Rooms</h2>
+          <label for="adult-rooms">Adult Rooms</label>
+          <input type="number" id="adult-rooms" min="0" max="5" placeholder="Number of adult rooms" required />
+
+          <label for="child-rooms">Child Rooms</label>
+          <input type="number" id="child-rooms" min="0" max="5" placeholder="Number of child rooms" required />
+        </div>
+
+        <button type="submit" class="booking-button">Book Now</button>
+      </form>
+
+      <!-- Price Card -->
+      <div class="price-card">
+        <h2>Total Price</h2>
+        <p id="price">Rs. 0</p>
+      </div>
+    </div>
+  </main>
+  <section class="footer-section">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Discover Pakistan Logo">
+        <p>Welcome to Discover Pakistan, your go-to platform for hassle-free and enriching travel journeys. We specialize in offering you quick and exciting getaways to explore the beauty of Pakistan.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about-us">About Us</a>
+        <a href="#destinations">Destinations</a>
+   
+      </div>
+      <div class="footer-contact">
+        <p>Contact Us</p>
+        <a href="mailto:k240790@nu.edu.pk">k240790@nu.edu.pk</a></br>
+        <a href="mailto:k240565@nu.edu.pk">k240565@nu.edu.pk</a></br>
+        <a href="mailto:k240980@nu.edu.pk">k240980@nu.edu.pk</a></br>
+        <a href="mailto:k240803@nu.edu.pk">k240803@nu.edu.pk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Discover Pakistan 2024. All rights reserved.</p>
+    </div>
+  </section>
+  
+</body>
+</html>
+

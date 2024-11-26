@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventure Booking</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const emailLinks = document.querySelectorAll('.footer-contact a');
+    emailLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default mailto behavior
+        const email = link.getAttribute('href').replace('mailto:', '');
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+      });
+    });
+});
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+  
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background-color: #01411cff;
+      padding: 20px;
+      border: 1px solid #4fa39f;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .content {
+      padding: 20px;
+    }
+  
+    .content p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+    .content ol {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+  
+    .footer p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    /* Team Section */
+.team-section {
+  background-color: #01411cff;
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 20px;
+}
+
+.team-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #80d980;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-card {
+  background-color: #ffffff;
+  color: #01411cff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.team-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #4fa39f;
+}
+
+.team-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-card {
+    width: 80%;
+  }
+}
+/* About Us Heading */
+.about-us-header {
+  background-color: #01411cff; /* Matches the green theme */
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 4px solid #80d980; /* Adds a sleek divider below the heading */
+}
+
+.about-us-header h1 {
+  font-size: 3rem; /* Large and bold heading */
+  margin: 0;
+  font-weight: bold;
+  color: #80d980; /* Matches the green accent color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .about-us-header h1 {
+    font-size: 2rem; /* Adjust heading size for smaller screens */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" class="logo-image" />
+    </div>
+    <div class="search-container">
+      <div class="search-wrapper">
+        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+        <input
+          type="text"
+          placeholder="Search destinations..."
+          class="search-bar"
+        />
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="About us.html">About</a>
+    </nav>
+    <div class="auth-buttons">
+      <a class="login-btn" href="Login Page.html">Log In</a>
+      <a class="signup-btn" href="Sign-up.html">Sign Up</a>
+    </div>
+  </header>
+  <section class="about-us-header">
+    <h1>About Us</h1>
+  </section>
+  
+  <div class="container">
+    <div class="content">
+        <p>Welcome to <em>Discover Pakistan</em>, a collaborative project born out of a shared passion for exploring and showcasing the beauty, diversity, and richness of Pakistan. Our team consists of four dedicated members, each bringing their unique skills and perspectives to the table.</p></br>
+        <p>Our journey began as a group project for our ICT course, where we were tasked with creating a website that highlights the cultural, historical, and natural heritage of Pakistan. As we delved deeper into our research, we realized that there was so much more to Pakistan than what meets the eye. From the majestic mountains of the north to the vast deserts of the south, every region has its own distinct flavor, waiting to be discovered.</p></br>
+       
+    </div>
+  </div>
+  <div class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-card">
+    \
+        <h3>Muhammad Wasil</h3>
+        <p class="team-title">Co-Lead</p>
+        <p class="team-description">The thinker who conceptualized our website and guided us through every step.</p>
+      </div>
+      <div class="team-card">
+     
+        <h3>Saad Khan Ghori</h3>
+        <p class="team-title">Lead Designer</p>
+        <p class="team-description">Well, you need someone to bring ideas to life, don’t you?</p>
+      </div>
+      <div class="team-card">
+
+        <h3>Hussnain Ayaz</h3>
+        <p class="team-title">Motivator #1</p>
+        <p class="team-description">Cheering the team on and keeping the spirits high!</p>
+      </div>
+      <div class="team-card">
+
+        <h3>Abdul Wahab</h3>
+        <p class="team-title">Motivator #2</p>
+        <p class="team-description">The ultimate supporter who ensures we never lose focus.</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <section class="footer-section">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Discover Pakistan Logo">
+    </div>
+      <div class="footer-links">
+        <a href="About us.html">About Us</a>
+        <a href="destinations.html">Destinations</a>
+      </div>
+      <div class="footer-contact">
+        <p>Contact Us</p>
+        <a href="mailto:k240790@nu.edu.pk">k240790@nu.edu.pk</a></br>
+        <a href="mailto:k240565@nu.edu.pk">k240565@nu.edu.pk</a></br>
+        <a href="mailto:k240980@nu.edu.pk">k240980@nu.edu.pk</a></br>
+        <a href="mailto:k240803@nu.edu.pk">k240803@nu.edu.pk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Discover Pakistan 2024. All rights reserved.</p>
+    </div>
+  </section>
