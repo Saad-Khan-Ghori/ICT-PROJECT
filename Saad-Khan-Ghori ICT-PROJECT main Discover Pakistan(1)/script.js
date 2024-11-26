@@ -9,14 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const bookNowButton = document.querySelector('.book-now');
     const learnMoreButton = document.querySelector('.learn-more');
-
-  // Add click event listeners
   bookNowButton.addEventListener('click', () => {
-    window.location.href = 'Booking.html'; // Replace with your Book Now page
+    window.location.href = 'Booking.html';
   });
 
   learnMoreButton.addEventListener('click', () => {
-    window.location.href = 'learnMore.html'; // Replace with your Learn More page
+    window.location.href = 'learnMore.html';
   });
-  });
-
+});
