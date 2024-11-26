@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css" />
+  
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const emailLinks = document.querySelectorAll('.footer-contact a');
+    emailLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default mailto behavior
+        const email = link.getAttribute('href').replace('mailto:', '');
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank');
+      });
+    });
+});
+</script>
+<script>
+  document.querySelector('.search-bar').addEventListener('input', async function () {
+    const query = this.value;
+    if (query.length > 2) { // Fetch results only if query length > 2
+        const response = await fetch(`search.php?query=${encodeURIComponent(query)}`);
+        const results = await response.json();
+        displayResults(results);
+    }
+});
+
+function displayResults(results) {
+    const container = document.querySelector('.search-container');
+    let resultHTML = '<div class="search-results">';
+    results.forEach(result => {
+        resultHTML += `
+            <div class="result-item">
+                <h4>${result.name}</h4>
+                <p>${result.description}</p>
+                <p><strong>Location:</strong> ${result.location}</p>
+            </div>
+        `;
+    });
+    resultHTML += '</div>';
+    container.innerHTML += resultHTML;
+}
+
+</script>
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+e.preventDefault();
+const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+
+if (!email || !password) {
+    alert('Please fill in all fields.');
+} else {
+    alert('Logged in successfully!');
+}
+});
+
+</script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" class="logo-image" />
+      </div>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <ion-icon name="search-outline" class="search-icon"></ion-icon>
+          <input
+            type="text"
+            placeholder="Search destinations..."
+            class="search-bar"
+          />
+          <div id="search-results"></div> <!-- Container for displaying results -->
+        </div>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="About us.html">About</a>
+
+      </nav>
+    </header>
+
+      <!--Login-->
+<div class="login-container"> 
+    <!-- Left Section -->
+    <div class="login-left">
+      <div class="logo">
+        <img src="logo.png" alt="Logo" class="logo-image">
+      </div>
+      <h1>Hi there!</h1>
+      <p>Welcome to Discover Pakistan</p>
+  
+      <form>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input type="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password">
+          <a href="#" class="forgot-password">Forgot your password?</a>
+        </div>
+        <button type="submit" class="login-main-btn">Log in</button>
+      </form>
+  
+      <p class="signup-text">
+        Don't have an account? <a href="Sign-up.html" class="signup-link">Sign up</a>
+      </p>
+    </div>
+  
+    <!-- Right Section -->
+    <div class="login-right">
+      <img src="login.jpg" alt="Login Image" class="login-image">
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section-->
+<section class="footer-section">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Discover Pakistan Logo">
+        <p>Welcome to Discover Pakistan, your go-to platform for hassle-free and enriching travel journeys. We specialize in offering you quick and exciting getaways to explore the beauty of Pakistan.</p>
+      </div>
+      <div class="footer-links">
+        <a href="About us.html">About Us</a>
+        <a href="destinations.html">Destinations</a>
+      </div>
+      <div class="footer-contact">
+        <p>Contact Us</p>
+        <a href="mailto:k240790@nu.edu.pk">k240790@nu.edu.pk</a></br>
+        <a href="mailto:k240565@nu.edu.pk">k240565@nu.edu.pk</a></br>
+        <a href="mailto:k240980@nu.edu.pk">k240980@nu.edu.pk</a></br>
+        <a href="mailto:k240803@nu.edu.pk">k240803@nu.edu.pk</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© Discover Pakistan 2024. All rights reserved.</p>
+    </div>
+
+  </section>
+ 
+</body>
+</html>

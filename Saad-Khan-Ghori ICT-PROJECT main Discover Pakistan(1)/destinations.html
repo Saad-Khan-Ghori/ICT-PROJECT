@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Pakistan - Destinations</title>
+  <link rel="stylesheet" href="destinations.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Discover Pakistan Logo" class="logo-image">
+    </div>
+    <div class="search-container">
+      <div class="search-wrapper">
+        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+        <input type="text" placeholder="Search destinations..." class="search-bar">
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="About us.html">About</a>
+    </nav>
+    <div class="auth-buttons">
+      <a class="login-btn" href="Login Page.html">Log In</a>
+      <a class="signup-btn" href="Sign-up.html">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Destinations Section -->
+  <section class="destinations">
+    <div class="destination-card" id="skardu">
+      <img src="https://cliffhangersindia.com/wp-content/uploads/2024/04/jannes-jacobs-KRIGA7iUN08-unsplash-2-scaled.jpg.webp" alt="Skardu">
+      <div class="card-content">
+        <h1>Skardu</h1>
+        <p>Discover the serene beauty of Skardu, surrounded by majestic mountains and crystal-clear lakes.</p>
+        <div class="buttons">
+          <button class="book-now">Book Now</button>
+          <button class="learn-more" data-destination="skardu">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="destination-card" id="kashmir">
+      <img src="https://i.dawn.com/primary/2019/11/5ddb806192b37.jpg" alt="Kashmir">
+      <div class="card-content">
+        <h1>Kashmir</h1>
+        <p>Experience the heaven on earth with lush valleys, rivers, and unmatched tranquility.</p>
+        <div class="buttons">
+          <button class="book-now">Book Now</button>
+          <button class="learn-more" data-destination="kashmir">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="destination-card" id="fairy-meadows">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7WG3yGhTLZYEy2LiI-cEi7-awlJLKa4Dlw&s" alt="Fairy Meadows">
+      <div class="card-content">
+        <h1>Fairy Meadows</h1>
+        <p>Witness breathtaking views of Nanga Parbat from the enchanting Fairy Meadows.</p>
+        <div class="buttons">
+          <button class="book-now">Book Now</button>
+          <button class="learn-more" data-destination="fairy-meadows">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <button class="close-modal">&times;</button>
+    <div class="modal-content">
+      <h2 class="modal-header"></h2>
+      <p class="modal-description"></p>
+      <div class="modal-sections">
+        <div class="modal-section">
+          <h3>Food</h3>
+          <ul id="modal-food"></ul>
+        </div>
+        <div class="modal-section">
+          <h3>Landmarks</h3>
+          <ul id="modal-landmarks"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="destinations.js"></script>
+</section>
+<section class="footer-section">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Discover Pakistan Logo">
+      <p>Welcome to Discover Pakistan, your go-to platform for hassle-free and enriching travel journeys. We specialize in offering you quick and exciting getaways to explore the beauty of Pakistan.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#about-us">About Us</a>
+      <a href="#destinations">Destinations</a>
+ 
+    </div>
+    <div class="footer-contact">
+      <p>Contact Us</p>
+      <a href="mailto:k240790@nu.edu.pk">k240790@nu.edu.pk</a></br>
+      <a href="mailto:k240565@nu.edu.pk">k240565@nu.edu.pk</a></br>
+      <a href="mailto:k240980@nu.edu.pk">k240980@nu.edu.pk</a></br>
+      <a href="mailto:k240803@nu.edu.pk">k240803@nu.edu.pk</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Discover Pakistan 2024. All rights reserved.</p>
+  </div>
+</section>
+
+
+
+</body>
+</html>
+
